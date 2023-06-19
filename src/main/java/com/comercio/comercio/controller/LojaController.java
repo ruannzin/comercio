@@ -18,7 +18,7 @@ public class LojaController {
 	List<Produto> listaDeProdutos= new ArrayList<Produto>();
 	
 	@GetMapping("/listar")
-	public String istarProdutos() {
+	public String listarProdutos() {
 		
 		Produto p1 = new Produto();
 		p1.setId(201);
