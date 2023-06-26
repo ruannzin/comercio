@@ -1,9 +1,10 @@
 package com.comercio.comercio.controller;
 
-import java.util.List;
+import java.util.List; 
 import java.util.ArrayList;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -18,7 +19,7 @@ public class LojaController {
 	List<Produto> listaDeProdutos= new ArrayList<Produto>();
 	
 	@GetMapping("/listar")
-	public String listarProdutos() {
+	public String listarProdutos(Model model) {
 		
 		Produto p1 = new Produto();
 		p1.setId(201);
@@ -26,7 +27,6 @@ public class LojaController {
 		p1.setCodigoBarras("1453IFJFUDE212456");
 		p1.setDescricao("Produto Linha Branca com painel digital");
 		p1.setPreco(3215.89);
-		
 		Produto p2 = new Produto();
 		p1.setId(201);
 		p1.setNome("Televisor 70");
@@ -38,6 +38,8 @@ public class LojaController {
 		
 		listaDeProdutos.add(p1);
 		listaDeProdutos.add(p2);
+		
+		model.addAttribute("listaDeProdutos", listaDeProdutos);
 		
 		return "produtos";
 	}
